@@ -1,0 +1,6 @@
+#gitignore 
+.sass-cache
+/node_modules/
+.DS_Store
+.brackets.json
+package-lock.json
