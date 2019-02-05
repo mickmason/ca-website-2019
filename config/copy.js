@@ -1,7 +1,7 @@
 module.exports = {
   media: {
     files: [
-      {expand: true, cwd: '<%= paths.media.src %>', src: ['**/*'], dest: '<%= paths.media.dest %>', filter: 'isFile'}
+      {expand: true, cwd: '<%= paths.media.src %>', src: ['imgs/*', 'svg/*'], dest: '<%= paths.media.dest %>', filter: 'isFile'}
     ]
   },
 	jsComponents: {

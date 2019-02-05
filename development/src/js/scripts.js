@@ -28,7 +28,6 @@ function bcInnerNav(navContainer) {
 				});
 				thisDropdown.style.height = thisDropdownScrollHeight + 'px';	
 				cb(thisDropdown);
-				
 			}
 		}
 		el.addEventListener('click', (e) => {
