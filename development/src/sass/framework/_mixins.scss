@@ -1,4 +1,10 @@
-@mixin makeCol($padding: $gutter/2) {
-	padding-left: $padding;
-	padding-right: $padding;
+@mixin boxShadow($x: 0, $y: 0, $blur: $base-unit*1px, $spread: 0, $color: rgba(0, 0, 0, 0.4)) {
+	box-shadow: $x $y $blur $spread $color;
+}
+@mixin makeFlexbox($direction: row, $justify: flex-start, $align: flex-start, $wrap: nowrap) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	flex-wrap: $wrap;
+	align-items: $align;
 }

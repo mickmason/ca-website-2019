@@ -3,5 +3,10 @@ module.exports = {
     files: [
       {expand: true, cwd: '<%= paths.media.src %>', src: ['**/*'], dest: '<%= paths.media.dest %>', filter: 'isFile'}
     ]
-  }//main
+  },
+	jsComponents: {
+    files: [
+      {expand: true, cwd: '<%= paths.jsFiles.componentsSrc %>', src: ['**/*.js'], dest: '<%= paths.jsFiles.dest.components %>', filter: 'isFile'}
+    ]
+  }
 }

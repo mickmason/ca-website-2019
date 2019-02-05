@@ -20,9 +20,11 @@ module.exports = function(grunt) {
 			},
 			jsFiles: {
 				src: ['development/src/js/scripts.js'],
+				componentsSrc: 'development/src/js/components/',
 				dest: {
 					dev: 'www-root/assets/js/',
-					dist: 'www-root/assets/js/'
+					dist: 'www-root/assets/js/',
+					components: 'www-root/assets/js/components/'
 				},
 				tempPaths: {
 					path: 'development/src/js/temp/',

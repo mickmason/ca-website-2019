@@ -17,11 +17,12 @@ module.exports = {
 				width: 1920,
 				height: 1080
 			}],
-			extract: true,
 			inline: true
 		},
 		files: [
-			{src: '<%= paths.html.dest %>index.html', dest: '<%= paths.html.dest %>index.html'}
+			{src: '<%= paths.html.dest %>index.html', dest: '<%= paths.html.dest %>index.html'},
+			{src: '<%= paths.html.dest %>projects.html', dest: '<%= paths.html.dest %>projects.html'},
+			{src: '<%= paths.html.dest %>two-column.html', dest: '<%= paths.html.dest %>two-column.html'}
 		]
 	}
 }

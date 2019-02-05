@@ -9,7 +9,7 @@ module.exports = {
 	},
 	default: {
 		files: {
-			'<%= paths.media.svg.dest %>': ['<%= paths.media.svg.src %>'],
+			'<%= paths.media.svgs.dest %>': ['<%= paths.media.svgs.src %>'],
 		}
 	}
 }

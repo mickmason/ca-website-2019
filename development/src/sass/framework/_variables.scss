@@ -1,3 +1,25 @@
-$gutter: 40px;
+$base-unit: 		4;
 
+/* Grid units */
+$gutter: 				2rem;
+$gridColsCount: 10;
+
+/* Color swatches */
 $brand-primary: #00f;
+$brand-red: 		#f00;
+$brand-yellow: 	#ff0;
+$black: 				#101010;
+$white: 				#fff;
+$text: 					#303030;
+
+/* Breakpoints*/
+$tablet: 				767px;
+$desktop: 			1024px;
+$med: 					1200px;
+$large: 				1600px;
+$x-large: 			1920px;
+
+/* Animations */
+$menuSlideTransition: 240ms;
+$buttonTransition: 		320ms;
+$easing: 							ease-out;
