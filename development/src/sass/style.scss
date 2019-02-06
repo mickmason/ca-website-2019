@@ -10,13 +10,13 @@ html {
 }
 
 @media screen and (min-width: 320px) {
-  html {
-    font-size: calc(14px + 10 * ((100vw - 320px) / 1800));
+  html { 
+    font-size: calc(14px + 6 * ((100vw - 320px) / (1920 - 320)));
   }
 }
-@media screen and (min-width: 2200px) {
+@media screen and (min-width: $xx-large) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 body {
@@ -48,7 +48,9 @@ h5 {
   margin-top: 1.5rem;
 }
 p {
-  margin-top: 1.5rem;
+	margin-top: 1.5rem;
+	margin-bottom: $gutter/8;
+	
 }
 @media screen and (min-width: 1200px) {
   /*	h1 { font-size: 2.5rem }
@@ -62,20 +64,15 @@ a {
 }
 /* Utils */
 .is-label {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: rgba($black, 0.75);
   font-weight: 300;
   text-transform: uppercase;
 }
 
 header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+	@include makeRow($direction: row, $justify: space-between, $align: stretch);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
-  margin-bottom: 0.5rem;
-	
 	.header-logo, .header-menu {
 		display: flex;
 		flex-direction: row;
@@ -87,8 +84,8 @@ header {
 	}
 	.header-logo {
 		flex: 1 1 0;
-		padding-left: 1rem;
-		padding-right: 1rem;
+		padding-left: 	$gutter/2;
+		padding-right: 	$gutter/2;
 		> h1 {
 			font-family: 'Helvetica Neue', sans-serif;
 			font-size: 1rem;
@@ -185,13 +182,18 @@ footer {
 @import 'components/bc-inner-nav';
 .bc-inner-nav {
 	@include makeCols(10);
-	padding-bottom: $gutter/8;
-	padding-bottom: $gutter/4;
-	& &-label {
+	& li &-label {
 		display: inline;
-		font-size: 0.72rem;
+		font-size: 0.8rem;
+		font-weight: 300;
 		text-decoration: none;
 		text-align: right;
+		padding-right: $gutter/2;
+		
+	}
+	& li &-icon {
+		padding-left: $gutter/2;
+		
 	}
 	& &-dropdown {
 		font-size: 0.8rem;
@@ -229,21 +231,48 @@ footer {
 			}		
 		}
 	}
+	@media screen and (min-width: $tablet) {
+		> li {
+			
+			.bc-inner-nav-label, .bc-inner-nav-icon {
+				align-self: flex-end;
+			}
+			.bc-inner-nav-icon {
+				display: none;
+			}
+		}
+		li .bc-inner-nav-dropdown {
+			min-width: 0;
+			height: auto;
+			display: inline-flex;
+			flex-direction: row;
+			align-items: center;
+			> li {
+				padding-right: $gutter/4;
+				a {
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+			}
+			
+		}
+	}
+	@media screen and (min-width: $desktop) {
+		& &-label {
+			//font-size: 0.72rem;
+		}
+	}
 }
-
-
-/* Projects page */
 .breadcrumbs {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
+	@include makeRow($direction: column, $justify: flex-start, $align: stretch);
+	padding-top: $gutter/1.5;
+	@media screen and (min-width: $desktop) {
+		flex-direction: row;
+		padding-top: 		$gutter;	
+	}
 }
-@media screen and (min-width: 1024px) {
-  .breadcrumbs {
-    flex-direction: row;
-  }
-}
+/* Projects page */
+
 
 /** Template: two-column **/
 .bc-main {
@@ -286,7 +315,120 @@ footer {
 .bc-main .bc-main-body h1:first-child {
   margin-top: 0;
 }
-
 /** - Template: two-column - **/
+/**  **/
+.bc-content-container {
+	max-width: 80rem; 
+	margin-left: 	auto;
+	margin-right: auto;
+}
+.bc-content-row {
+	&.cards-row {
+		padding-top: 		$gutter/1.5;
+		padding-bottom: $gutter/1.5;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	
+	@media screen and (min-width: $desktop) {
+		&.cards-row {
+			padding-top: 		$gutter;	
+			padding-bottom: $gutter;	
+		}
+	}
+}
 
-/*# sourceMappingURL=style.css.map */
+@import 'components/bc-cards';
+.bc-card {
+	@include makeCols($cols: 10);
+	flex-basis: 100% ;
+	max-width: 100% ;
+	&--slide-up {
+		.card-separator {
+			margin-top: 		$gutter/2;
+			margin-bottom: 	$gutter/2;
+			margin-left: 		0.25rem;
+			width: 					0.875rem;
+			flex: 					1 1 0;
+			border-left: 		2px dotted rgba($black, 0.24); 
+			position: relative;
+			&:before {
+				content: "";
+				position: absolute;
+				width: 		0.857rem;
+				height: 	0.857rem;
+				left: 		-2.358rem;
+				top: 			50%;
+				border: 	0.72rem solid $white;
+				background-color: $brand-yellow;
+				transform: translate(50%, -50%) rotate(45deg);
+			}
+		}
+		.project-info, project-link {
+			flex: 0 1 0;
+		}
+		.project-link {
+			@include makeFlexbox($direction: row, $justify: space-between);
+			.project-link-text {
+				flex: 1 1 0;
+			}
+			.svg-icon {
+				flex: 1 1 0;
+				max-height: 1.25rem;
+				max-width: 	1.25rem;
+			}
+		}
+	}
+	@media screen and (min-width: 500px) {
+		flex-basis: 50%;
+		max-width: 	50%;
+		.bc-card-content {
+			.bc-card-title {
+				font-size: 1rem;
+			}
+			.bc-card-subtitle, .project-link {
+				font-size: 0.8rem;
+			}
+			.project-link {
+				.svg-icon {
+					max-height: 1rem;
+					max-width: 	1rem;
+				}	
+			}
+		}
+	}
+	@media screen and (min-width: 600px) {
+		flex-basis: 33.333%;
+		max-width: 	33.333%;
+	}
+	@media screen and (min-width: $tablet) {
+		flex-basis: 25%;
+		max-width: 	25%;
+		& &-content {
+			.bc-card-title {
+				font-size: 1rem;
+			}
+			.bc-card-subtitle, .project-link {
+				font-size: 0.8rem;
+			}
+			.project-link {
+				.svg-icon {
+					max-height: 1rem;
+					max-width: 	1rem;
+				}
+			}
+		}
+	}
+	@media screen and (min-width: $desktop) {
+		flex-basis: 25%;
+		max-width: 	25%;
+	}
+	@media screen and (min-width: $med) {
+		flex-basis: 20%;
+		max-width: 	20%;
+	}
+	@media screen and (min-width: $laptop) {
+		flex-basis: 20%;
+		max-width: 	20%;
+	}
+}

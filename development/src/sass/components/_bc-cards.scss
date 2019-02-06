@@ -1,0 +1,73 @@
+/* Big Cat Cards */ 
+.bc-card {
+	@include makeFlexbox($direction: column, $align: stretch); 
+	margin-bottom: $gutter;
+	a {
+		display: block;
+		text-decoration: none;
+	}
+	& &-img { 
+		> img {
+			max-width: 100%;
+		}
+		&.is-square {
+			position: relative;
+			overflow: hidden;
+			> img {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 100%;
+				transform: translate(-50%, -50%);
+				object-fit: cover;
+			}
+			padding-top: 100%;
+		}	
+		
+	}
+	& &-content {
+		.bc-card-title { 
+			font-size: 1.25rem;
+			font-weight: 400;
+			margin-top: 0; 
+			margin-bottom: $gutter/4;
+			text-decoration: none;
+		}
+		.bc-card-subtitle {
+			font-size: 1rem;
+			font-weight: 300;
+			margin-top: 0;
+		}
+	}
+	&--slide-up {
+		position: relative;
+		overflow: hidden;
+		.bc-card-img {
+			z-index: 0;
+		}
+		.bc-card-content {
+			position: absolute;
+			z-index: 10;
+			top: 100%;
+			bottom: 0;
+			left: $gutter/2;
+			height: 100%;
+			width: calc(100% - #{$gutter});
+			background-color: $white;
+			transition: top $menuSlideTransition $easing;
+			> a {
+				@include makeFlexbox($direction: column, $justify: space-between, $align: stretch);
+				height: 100%;
+				padding: $gutter/2 $gutter/4;
+			}
+		}
+		
+		&:hover {
+			margin-top: 0;
+			.bc-card-content {
+				top: 0;	
+				background-color: $white;
+			}
+		}
+	}
+}
