@@ -64,10 +64,7 @@ a {
 }
 /* Utils */
 .is-label {
-  font-size: 0.8rem;
-  color: rgba($black, 0.75);
-  font-weight: 300;
-  text-transform: uppercase;
+  @include makeLabel();
 }
 
 header {
@@ -247,30 +244,37 @@ footer {
 			display: inline-flex;
 			flex-direction: row;
 			align-items: center;
+			overflow: visible;
 			> li {
-				padding-right: $gutter/4;
+				padding-right: $gutter/4; 
 				a {
 					padding-top: 0;
 					padding-bottom: 0;
 				}
 			}
-			
+			a {
+				&.active {
+					&:before {
+						top: auto;
+						left: 50%;
+						transform: translateX(-50%);
+						bottom: -0.5rem;
+						border-left-color: $white;
+						border-bottom-color: $black;	
+					}
+				}
+			}
 		}
 	}
 	@media screen and (min-width: $desktop) {
 		& &-label {
-			//font-size: 0.72rem;
+			font-size: 0.72rem;
 		}
 	}
 }
-.breadcrumbs {
-	@include makeRow($direction: column, $justify: flex-start, $align: stretch);
-	padding-top: $gutter/1.5;
-	@media screen and (min-width: $desktop) {
-		flex-direction: row;
-		padding-top: 		$gutter;	
-	}
-}
+/* Template Breadcrumbs */
+@import 'components/bc-breadcrumbs';
+/* -- Template Breadcrumbs -- */
 /* Projects page */
 
 
@@ -360,7 +364,7 @@ footer {
 				left: 		-2.358rem;
 				top: 			50%;
 				border: 	0.72rem solid $white;
-				background-color: $brand-yellow;
+				background-color: rgba($black, 0.36);;
 				transform: translate(50%, -50%) rotate(45deg);
 			}
 		}
@@ -382,6 +386,7 @@ footer {
 	@media screen and (min-width: 500px) {
 		flex-basis: 50%;
 		max-width: 	50%;
+		
 		.bc-card-content {
 			.bc-card-title {
 				font-size: 1rem;
@@ -396,14 +401,24 @@ footer {
 				}	
 			}
 		}
+		&--slide-up { 
+			.card-separator {
+				&::before {
+					width: 		0.8rem;
+					height: 	0.8rem;
+					left: 		-1.8rem;
+					border-width: 0.48rem;	
+				}
+				
+			}
+		}
+		
 	}
 	@media screen and (min-width: 600px) {
 		flex-basis: 33.333%;
 		max-width: 	33.333%;
 	}
 	@media screen and (min-width: $tablet) {
-		flex-basis: 25%;
-		max-width: 	25%;
 		& &-content {
 			.bc-card-title {
 				font-size: 1rem;
@@ -418,6 +433,7 @@ footer {
 				}
 			}
 		}
+		
 	}
 	@media screen and (min-width: $desktop) {
 		flex-basis: 25%;
@@ -432,3 +448,32 @@ footer {
 		max-width: 	20%;
 	}
 }
+
+.brand-yellow-scheme {
+	.bc-breadcrumbs {
+		.bc-breadcrumbs-links {
+			&::before {	background-color: $brand-yellow;	}
+		}
+	}
+	.bc-card {
+		&--slide-up {
+			.card-separator { 
+				&:before {	background-color: $brand-yellow;	}
+			}
+		}
+	}
+}//.brand-yellow-scheme
+.brand-red-scheme {
+	.bc-breadcrumbs {
+		& &-links {
+			&::before {	background-color: $brand-yellow;	}
+		}
+	}
+	.bc-card {
+		&--slide-up {
+			.card-separator { 
+				&:before {	background-color: $brand-yellow;	}
+			}
+		}
+	}
+}//.brand-yellow-scheme

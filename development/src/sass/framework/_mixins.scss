@@ -8,3 +8,12 @@
 	flex-wrap: $wrap;
 	align-items: $align;
 }
+@mixin makeLabel($uppercase: uppercase) {
+	font-size: 0.8rem;
+  color: rgba($black, 0.75);
+  font-weight: 300;
+  text-transform: $uppercase;
+	@media screen and (min-width: $desktop) {
+		font-size: 0.72rem;
+	}
+}

@@ -1,0 +1,35 @@
+.bc-breadcrumbs { 
+	@include makeRow($direction: column, $justify: flex-start, $align: stretch);
+	padding-top: $gutter/1.5;
+	
+	.bc-breadcrumbs-links {
+		position: relative;
+		margin: 0;
+		padding-left: $gutter/2;
+		> li {
+			list-style: none;
+			display: inline-block;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			width: 	0.72rem;
+			height: 0.72rem;
+			left: 	-$gutter/4;
+			top: 50%; 
+			transform: translateY(-50%);
+			background-color: rgba($black, 0.36);
+			display: none;
+		}
+	}
+	
+	@media screen and (min-width: $desktop) {
+		flex-direction: row;
+		padding-top: 		$gutter;	
+		.bc-breadcrumbs-links {
+			&::before {
+				display: inherit;		
+			}
+		}
+	}
+}//.bc-breadcrumbs

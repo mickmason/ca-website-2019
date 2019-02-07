@@ -1,8 +1,31 @@
-@@include('structure/header.html', {"client": "Cooney Architects", "title": "Site index"})
-		<div class="bc-content-container"> 
-			<nav class="bc-breadcrumbs">
-				@@include('components/bc-inner-nav.html')
-			</nav>	
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preload" as="style" href="https://use.typekit.net/lwq7zun.css">
+		<link rel="stylesheet" href="assets/css/style.min.css">
+		<title>Cooney Architects - People</title>
+	</head>
+	<body class="brand-red-scheme"> 
+		<header class="">
+			<div class="header-logo">
+				<h1><a href="javascript:void(0)"><span>Cooney</span>Architects</a></h1>	
+			</div>
+			<div class="header-menu">
+				Menu
+			</div>
+		</header>
+		<div class="bc-content-container">
+				<nav class="bc-breadcrumbs">
+	<ul class="bc-breadcrumbs-links">
+		<li>
+			<a class="bc-breadcrumbs-link is-label">People</a>
+		</li>
+		<li>
+			<a class="breadcrumb-link is-label">Projects</a>
+		</li> 
+	</ul><!-- // .bc-breadcrumbs-links -->
+</nav><!-- // .bc-breadcrumbs -->
 		</div>
 		
 		<main>
@@ -211,4 +234,32 @@
 				</section><!-- // .cards-row -->
 			</div><!-- // .bc-content-container -->
 		</main>
-@@include('structure/footer.html')
+		<footer >
+			<div class="footer-col">
+				<h2>Dublin Office</h2>
+				<p>The Old Brewers Club,<br />
+				32 The Coombe,<br />
+				Dublin 8</p>
+				<h3>Phone</h3>
+				<p><a href="tel:01 4533444">+353 1 4533444</a></p>
+				<h3>Email</h3>
+				<p><a href="info@cooneyarchitects.com">info@cooneyarchitects.com</a></p>
+			</div>
+			<div class="footer-col">
+				<h2>Cavan Office</h2>
+				<p>Moyer,<br />
+				Bailieborough,<br />
+				Co. Cavan</p>
+			</div>
+			<div class="footer-col">
+				<h2>Follow</h2>
+				<p><a href="javascript:void(0)">Instagram</a><br /> 
+				<a href="javascript:void(0)">Twitter</a><br />
+				<a href="javascript:void(0)">Facebook</a><br />
+				<a href="javascript:void(0)">Medium</a></p>
+				
+			</div>
+		</footer>
+		<script defer src="assets/js/scripts.min.js"></script>
+	</body>
+</html>

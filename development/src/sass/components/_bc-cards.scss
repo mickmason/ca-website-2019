@@ -58,7 +58,7 @@
 			> a {
 				@include makeFlexbox($direction: column, $justify: space-between, $align: stretch);
 				height: 100%;
-				padding: $gutter/2 $gutter/4;
+				padding: $gutter $gutter/2;
 			}
 		}
 		
