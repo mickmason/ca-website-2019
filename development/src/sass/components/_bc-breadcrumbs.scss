@@ -1,30 +1,40 @@
 .bc-breadcrumbs { 
-	@include makeRow($direction: column, $justify: flex-start, $align: stretch);
+	padding-left: $gutter/2;
+	padding-right: $gutter/2;
 	padding-top: $gutter/1.5;
 	
-	.bc-breadcrumbs-links {
+	& &-links {
+		@include makeFlexbox($align: center, $wrap: wrap);
 		position: relative;
 		margin: 0;
 		padding-left: $gutter/2;
 		> li {
 			list-style: none;
-			display: inline-block;
+			padding-left: 	$gutter/8;
+			padding-right: 	$gutter/8;
+			&:first-child {
+				padding-left: 0;
+			}
 		}
-		&::before {
-			content: "";
-			position: absolute;
-			width: 	0.72rem;
-			height: 0.72rem;
-			left: 	-$gutter/4;
-			top: 50%; 
-			transform: translateY(-50%);
-			background-color: rgba($black, 0.36);
-			display: none;
-		}
+		
 	}
-	
+	.bc-breadcrumbs-links:before {
+		content: "";
+		position: absolute;
+		width: 	0.72rem;
+		height: 0.72rem;
+		left: 	-$gutter/4;
+		top: 50%; 
+		transform: translateY(-50%);
+		background-color: rgba($black, 0.36);
+		display: none;
+	}
+	& &-separator {
+		max-height: 0.64rem;
+		max-width: 	0.64rem;
+		fill: rgba(0, 0, 0, 0.4);
+	}
 	@media screen and (min-width: $desktop) {
-		flex-direction: row;
 		padding-top: 		$gutter;	
 		.bc-breadcrumbs-links {
 			&::before {

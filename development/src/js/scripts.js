@@ -38,4 +38,6 @@ function bcInnerNav(navContainer) {
 		});	
 	}); 
 }
-bcInnerNav(document.querySelector('.bc-inner-nav')); 
+if (document.querySelector('.bc-inner-nav')) {
+	bcInnerNav(document.querySelector('.bc-inner-nav')); 
+}
