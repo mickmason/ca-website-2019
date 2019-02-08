@@ -28,11 +28,4 @@
 	}
 }
 
-.bc-content-container {
-	max-width: 80rem; 
-	margin-left: 	auto;
-	margin-right: auto;
-}
-.bc-content-row {
-	@include makeRow();
-}
+
