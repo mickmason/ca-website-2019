@@ -1,4 +1,10 @@
 /* Big Cat Cards */ 
+.bc-cards-heading {
+	flex: 1 1 100;
+	width: 100%;
+	padding: $gutter $gutter/2; 
+	h1, h2, h3, h4, h5 { margin-top: 0; }
+}
 .bc-card {
 	@include makeFlexbox($direction: column, $align: stretch); 
 	margin-bottom: $gutter;
@@ -38,6 +44,31 @@
 			font-weight: 300;
 			margin-top: 0;
 		}
+		> a {
+			@include makeFlexbox($direction: column, $justify: space-between, $align: stretch);
+			height: 100%;
+			padding: $gutter $gutter/2;
+		}
+	}
+	.project-info, project-link {
+		flex: 0 1 0;
+	}
+	.project-link {
+		@include makeFlexbox($direction: row, $align: center);
+		.project-link-text {
+			flex: 0 1 auto;
+			padding-right: $gutter/2;
+		}
+		.svg-icon {
+			flex: 0 1 auto;
+			max-height: 1.25rem;
+			max-width: 	1.25rem;
+		}
+	}
+	&:hover, &:focus {
+		.project-link-text {
+			text-decoration: underline;
+		}
 	}
 	&--slide-up {
 		position: relative;
@@ -54,21 +85,79 @@
 			height: 100%;
 			width: calc(100% - #{$gutter});
 			background-color: $white;
-			transition: top $menuSlideTransition $easing;
-			> a {
-				@include makeFlexbox($direction: column, $justify: space-between, $align: stretch);
-				height: 100%;
-				padding: $gutter $gutter/2;
-			}
+			transition: top $menuSlideTransition $easing;	
 		}
-		
-		&:hover {
+		&:hover, &:focus {
 			margin-top: 0;
 			.bc-card-content {
 				top: 0;	
 				background-color: $white;
 			}
 		}
+	}// .bc-card--slide-up 
+	/* We are real card */
+	&--plain-text {
+		
+		.bc-card-content {
+			height: 100%;
+			background-color: $shade-light; 
+			transition: background-color $menuSlideTransition $easing;
+			> a {
+				justify-content: center;
+				align-items: center;
+				padding: 0; 
+			}
+			.bc-card-title {
+				text-align: center;
+				font-size: 2rem;
+				font-weight: 300;
+				font-style: italic;
+			}
+			.svg-icon {
+				max-width: 	3rem;
+				max-height: 3rem;
+				fill: $white;
+			}
+		}
+		&.is-square {
+			.bc-card-content {
+				@include isSquare;
+				> a {
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+				}
+			}
+		}
+		&:hover, &:focus, &:active {
+			.bc-card-content {
+				background-color: $shade-mid;
+				.bc-card-content {
+					.bc-card-title {
+						text-decoration: underline;
+					}
+				}	
+			}
+		}
+	}// .bc-card--plain-text
+}// .bc-card 
+.bc-cards-row--full-bleed {
+	padding-left: $gutter;
+	padding-right: $gutter;
+	.bc-cards-heading {
+		padding-left:  0;
+		padding-right: 0;
+	}
+	.bc-card {
+		padding-left: 	0;
+		padding-right: 	0;
+		margin-bottom: 0;
+	}
+	.bc-card-content {
+		width: 100%;
+		left: 0;
 	}
 }
 

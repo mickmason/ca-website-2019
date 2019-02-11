@@ -1,24 +1,32 @@
 $base-unit: 		4;
 
 /* Grid units */ 
-$gutter-unit: 	1.42857142857143;
-$gutter: 				1.42857142857143rem;
+$gutter-unit: 	1.5;
+$gutter: 				1.5rem;
 $gridColsCount: 10;
 
 /* Color swatches */
-$brand-primary: #00f;
+$brand-blue: 		#00f;
 $brand-red: 		#f00;
 $brand-yellow: 	#ff0;
+$brand-primary: $brand-blue;
 $black: 				#101010;
 $white: 				#fff;
 $text: 					#303030;
 
+/* Greyscale */
+$shade-dark: 		rgba($black, 0.72);
+$shade-mid: 		rgba($black, 0.48);
+$shade-light: 		rgba($black, 0.24);
+
 /* Breakpoints*/
 $tablet: 				767px;
+$tablet-max: 		1023px;
 $desktop: 			1024px;
-$med: 					1100px;
+
+$med: 					1240px;
 $laptop:				1366px;
-$large: 				1400px;
+$large: 				1440px;
 $x-large: 			1600px;
 $xx-large: 			1920px;
 

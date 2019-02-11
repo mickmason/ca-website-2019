@@ -1,13 +1,61 @@
-@@include('structure/header.html', {"client": "Cooney Architects", "title": "Site index"})
-		<div class="bc-content-container"> 
-			<nav class="bc-breadcrumbs">
-				@@include('components/bc-inner-nav.html')
-			</nav>	
-		</div>
-		
-		<main>
+@@include('structure/header--people.html', {"client": "Cooney Architects: Bryan Brady", "title": "Bryan Brady"})
 			<div class="bc-content-container">
-				<section class="bc-content-row bc-cards-row" aria-label="Cooney Architects Projects">
+				@@include('components/bc-breadcrumbs--people.html')
+			</div><!-- // .bc-content container - breadcrumbs -->
+			<div class="bc-content-container">
+			<section class="person-profile two-col-feature">
+				<aside class="short-col">
+					<figure>
+						<img src="assets/media/imgs/bryan.jpg" alt="Bryan Brady, Partner" />
+						<figcaption> 
+							<svg class="svg-icon">
+								<use xlink:href="/assets/media/svg/bc-icons.svg#quotes"></use>
+							</svg>	
+							<p>I believe architecture has a social responsibility to society.</p>
+						</figcaption>
+					</figure>
+				</aside>
+				<section class="long-col" aria-label="Main content">
+					<h1 class="content-title">Bryan Brady</h1> 
+					<h2 class="content-subtitle">Partner</h2>
+					<p class="content-intro"><strong>Architecture inspires and challenges me to be creative, I constantly strive to do the best I can do and to do everyting best that it can be done; working with others fighting for the same values: to achieve excellence. </strong></p>
+					<p>I joined Cooney Architects in 2004 and re-joined in 2007. I am a registered Architect and graduated in 2003 with a B.Sc. (Hons) Arch Tech.</p>
+					<h3>Qualifications</h3>
+					<p>B.Sc. (Hons) Arch Tech MRIAI</p>
+					<table class="person-qualifications">
+						<tbody>
+							<tr>
+								<td>2019</td>
+								<td>RIAI Conservation Induction Module Grade 3</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td>MRIAI</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>UCD Professional Practice modules; Architectural Practice: Construction Legislation; Procurement & Contracts</td>
+							</tr>
+							<tr>
+								<td>2003</td>
+								<td>B.Sc. (Hons) Arch Tech; Waterford Institute of Technology</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<div class="content-separator-wrap">
+					<div class="content-separator"></div>	
+				</div>
+			</section><!-- // .person-profile -->
+			</div><!-- // .bc-content container - person profile -->
+			<div class="bc-content-container">
+				<section class="bc-content-row bc-cards-row bc-cards-row--full-bleed ca-profile-projects" aria-label="My Projects">
+					<div class="bc-cards-heading">
+						<div class="bc-card--plain-text__wrap">
+							<h2>My Projects</h2>	
+						</div>
+						
+					</div>
 					<article class="bc-card bc-card--slide-up">
 						<figure class="bc-card-img is-square">
 							<img src="assets/media/imgs/meath-gaa-centre-of-excellence-1-square.jpg" alt="Meath GAA Centre of Excellence" />	
@@ -209,6 +257,5 @@
 						</div>
 					</article><!-- // McNamara project -->
 				</section><!-- // .cards-row -->
-			</div><!-- // .bc-content-container -->
-		</main>
-@@include('structure/footer.html')
+			</div><!-- // .bc-content-container - My work -->
+@@include('structure/footer.html') 
