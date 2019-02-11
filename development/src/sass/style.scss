@@ -7,7 +7,7 @@
 
 html {
   font-size: 14px;
-  line-height: 1.42857142857143;
+  line-height: $gutter-unit;
 }
 
 @media screen and (min-width: 320px) {
@@ -26,32 +26,17 @@ body {
 h1, h2, h3, h4, h5 {
   font-weight: 300;
   line-height: 1.3;
+	margin-top: $gutter;
   margin-bottom: 0;
 }
-h1 {
-  font-size: 2.0rem;
-  margin-top: 1.5rem;
-}
-h2 {
-  font-size: 1.5rem;
-  margin-top: 1.5rem;
-}
-h3 {
-  font-size: 1.25rem;
-  margin-top: 1.5rem;
-}
-h4 {
-  font-size: 1rem;
-  margin-top: 1.5rem;
-}
-h5 {
-  font-size: 1rem;
-  margin-top: 1.5rem;
-}
+h1 { font-size: 1.75rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+h5 { font-size: 1rem; }
 p {
-	margin-top: 1.5rem;
+	margin-top: $gutter*1.25;
 	margin-bottom: $gutter/8;
-	
 }
 @media screen and (min-width: 1200px) {
   /*	h1 { font-size: 2.5rem }
@@ -67,10 +52,26 @@ a {
 .is-label {
   @include makeLabel();
 }
+.content-separator {
+	flex: 					1 1 0;
+	border-left: 		2px dotted rgba($black, 0.24); 
+	position: relative;
+	&:before {
+		content: "";
+		position: absolute;
+		width: 		$gutter*1.5;
+		height: 	$gutter*1.5;
+		background-color: rgba($black, 0.36);
+		border: 0.143rem solid $white; /* 2px @ 14px */
+		transform: translate(50%, -50%);
+	}
+}
 
 header {
-	@include makeRow($direction: row, $justify: space-between, $align: stretch);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+	.content-row {
+		@include makeRow($direction: row, $justify: space-between, $align: stretch);	
+	}
 	.header-logo, .header-menu {
 		display: flex;
 		flex-direction: row;
@@ -127,15 +128,12 @@ header {
 		}
 	}
 }
-
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
   background-color: #303030;
   color: #fff;
-	
+	.content-row {
+		@include makeRow($direction: column, $align: stretch);
+	} 
 	.footer-col {
 		flex: 1 1 0;
 		padding-left: 1rem;
@@ -229,13 +227,6 @@ footer {
 			}		
 		}
 	}
-	@media screen and (min-width: $tablet) {
-		> li {
-			
-			
-		}
-		
-	}
 	@media screen and (min-width: $desktop) {
 		& &-label {
 			font-size: 0.72rem;
@@ -294,13 +285,12 @@ footer {
 
 /* Projects page */
 .bc-content-row {
-	&.cards-row {
+	&.bc-cards-row {
 		padding-top: 		$gutter/1.5;
 		padding-bottom: $gutter/1.5;
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	
 	@media screen and (min-width: $desktop) {
 		&.cards-row {
 			padding-top: 		$gutter;	
@@ -308,52 +298,37 @@ footer {
 		}
 	}
 }
-
 @import 'components/bc-cards';
+.ca-projects {
+	@media screen and (min-width:  500px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
 .bc-card {
 	@include makeCols($cols: 10);
 	flex-basis: 100% ;
 	max-width: 100% ;
 	&--slide-up {
-		.card-separator {
+		.content-separator {
 			margin-top: 		$gutter/2;
 			margin-bottom: 	$gutter/2;
 			margin-left: 		0.25rem;
 			width: 					0.875rem;
-			flex: 					1 1 0;
-			border-left: 		2px dotted rgba($black, 0.24); 
-			position: relative;
+			height: 					0.875rem;
 			&:before {
-				content: "";
-				position: absolute;
 				width: 		0.857rem;
 				height: 	0.857rem;
-				left: 		-2.358rem;
+				left: 		-1.81rem;
 				top: 			50%;
-				border: 	0.72rem solid $white;
 				background-color: rgba($black, 0.36);;
 				transform: translate(50%, -50%) rotate(45deg);
-			}
-		}
-		.project-info, project-link {
-			flex: 0 1 0;
-		}
-		.project-link {
-			@include makeFlexbox($direction: row, $justify: space-between);
-			.project-link-text {
-				flex: 1 1 0;
-			}
-			.svg-icon {
-				flex: 1 1 0;
-				max-height: 1.25rem;
-				max-width: 	1.25rem;
 			}
 		}
 	}
 	@media screen and (min-width: 500px) {
 		flex-basis: 50%;
 		max-width: 	50%;
-		
 		.bc-card-content {
 			.bc-card-title {
 				font-size: 1rem;
@@ -369,24 +344,28 @@ footer {
 			}
 		}
 		&--slide-up { 
-			.card-separator {
+			.content-separator {
 				&::before {
 					width: 		0.8rem;
 					height: 	0.8rem;
-					left: 		-1.8rem;
 					border-width: 0.48rem;	
 				}
-				
 			}
 		}
-		
+		&--plain-text {
+			.bc-card-content {
+				.bc-card-title {
+					font-size: 1.75rem;
+				}
+			}
+		}
 	}
 	@media screen and (min-width: 600px) {
 		flex-basis: 33.333%;
 		max-width: 	33.333%;
 	}
 	@media screen and (min-width: $tablet) {
-		& &-content {
+		.bc-content {
 			.bc-card-title {
 				font-size: 1rem;
 			}
@@ -397,6 +376,13 @@ footer {
 				.svg-icon {
 					max-height: 1rem;
 					max-width: 	1rem;
+				}
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				.bc-card-title {
+					font-size: 1.75rem;
 				}
 			}
 		}
@@ -447,11 +433,65 @@ footer {
 				}
 				padding-top: 100%;
 			}	
-
 		}
 		@media screen and (min-width: 600px) {
 			flex-basis: 50%;
 			max-width: 	50%;
+			order: 3;
+			&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4)  {
+				order: 1;
+			}
+		}
+		@media screen and (min-width: $tablet) {
+			flex-basis: 33.333%;
+			max-width: 	33.333%;
+			&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4)  {
+				order: 3;
+			}
+			&:nth-of-type(1), &:nth-of-type(2)  {
+				order: 1;
+			}
+		}
+		@media screen and (min-width: $desktop) {
+			flex-basis: 25%;
+			max-width: 	25%;
+			&:nth-of-type(3), &:nth-of-type(4) {
+				order: 1;
+			}
+		}
+		@media screen and (min-width: $large) {
+			.bc-card-content {
+				.bc-card-title {
+					font-size: 1.25rem;
+				}
+				.bc-card-subtitle, .project-link {
+					font-size: 1rem;
+				}
+				.project-link {
+					.svg-icon {
+						max-height: 1.25rem;
+						max-width: 	1.25rem; 
+					}
+				}
+			}
+			&--plain-text {
+				.bc-card-content {
+					.bc-card-title {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+		
+	}//.person-card
+	/* Plain text card */
+}//.bc-card
+.ca-profiles {
+	.bc-card--plain-text {
+		@media screen and (min-width: 600px) {
+			flex-basis: 50%;
+			max-width: 	50%;
+			order: 2;
 		}
 		@media screen and (min-width: $tablet) {
 			flex-basis: 33.333%;
@@ -460,10 +500,125 @@ footer {
 		@media screen and (min-width: $desktop) {
 			flex-basis: 25%;
 			max-width: 	25%;
+			order: 3;
 		}
-	}//.person-card
+	}
 }
-
+/* Full profile pages */
+.ca-profile-projects {
+	padding-top: 0;
+	box-shadow: inset 0 4px 4px -4px $shade-mid, inset 0 -4px 4px -4px $shade-mid;
+}
+.two-col-feature {
+	@include makeRow();
+	padding: $gutter $gutter/2 $gutter*3 $gutter/2 ;
+	position: relative;
+	overflow: hidden;
+	.short-col, .long-col {
+		padding-left: 	$gutter/2;
+		padding-right: 	$gutter/2;
+	}
+	figure {
+		img {width: 100%;}
+		max-width: 28rem;
+	}
+	figcaption {
+		@include makeFlexbox($direction: row, $align: flex-start);
+		padding: $gutter $gutter;
+		margin-bottom: $gutter*1.5;
+		.svg-icon {
+			fill: $brand-red;
+			max-width: 	1.75rem;
+			min-width: 	1.5rem;
+			max-height: 1.75rem;
+			min-height: 1.0rem;
+			margin-top: 0.0rem;
+			margin-right: $gutter/2;
+		}
+		> p {
+			font-family: 	Georgia, serif;
+			font-style: 	italic; 
+			font-size: 1.15rem;
+			line-height: 1.4;
+			margin-top: 0;
+			margin-left: $gutter/2;
+		}
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 0.21428571428571rem ; /* 3px @ 14px base font-size */
+			width: 16%;
+			background-color: $brand-red;
+		}
+	}
+	.content-title {
+		margin-top: 0;
+	}
+	.content-subtitle { 
+		color: $brand-red;
+		font-size: 1rem;
+		text-transform: uppercase;
+		margin-top: $gutter/4;
+	}
+	.content-intro {
+		line-height: 1.58;
+	}
+	.content-separator-wrap {
+		display: none;
+	}
+	.content-separator { 
+		width: auto;
+		&:before { 
+			left: 				-3.25rem;
+			top: 					1.3rem;
+			border-width: 0.5rem;
+		}
+	}
+	
+	@media screen and (min-width: $tablet) {
+		flex-direction: row;
+		.short-col {
+			flex-basis: 40%;
+			max-width: 	40%;
+		}
+		.long-col {
+			flex-basis: 60%;
+			max-width: 	60%;
+		}
+	}
+	@media screen and (min-width: $desktop) {
+		flex-direction: row;
+	}
+	@media screen and (min-width: $med) {
+		.short-col {
+			flex-basis: 40%;
+			max-width: 	40%;
+		}
+		.long-col {
+			flex-basis: 	50% ;
+			max-width: 		50% ;
+			margin-left: 	2.5%;
+		}
+		.content-separator-wrap {
+			position: absolute;
+			top: $gutter;
+			right: $gutter/2;
+			width: 5%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			@include makeCols(0.5);
+			margin-left: 4.65%;
+		}
+		.content-separator {
+			width: 0px;
+			flex-grow: 0;
+		}
+	}
+}// .two-col-feature 
 .brand-yellow-scheme {
 	.bc-breadcrumbs {
 		.bc-breadcrumbs-links {
@@ -472,8 +627,20 @@ footer {
 	}
 	.bc-card {
 		&--slide-up {
-			.card-separator { 
+			.content-separator { 
 				&:before {	background-color: $brand-yellow;	}
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-yellow;
+				color: $black;
+				.svg-icon {
+					fill: $white;
+				}
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-yellow, 16%);
+				}
 			}
 		}
 	}
@@ -481,14 +648,55 @@ footer {
 .brand-red-scheme {
 	.bc-breadcrumbs {
 		.bc-breadcrumbs-links {
-			&::before {	background-color: $brand-red;	}
+			&::before { background-color: $brand-red;	 }
+		}
+	}
+	.content-separator { 
+		&:before {	background-color: $brand-red;	}
+	}
+	.bc-card {	
+		&.person-card {
+			.bc-card-content {
+				.bc-card-subtitle {	color: $brand-red; }	
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-red;
+				color: $white;
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-red, 8%); 
+				}
+			}
+		}
+	}
+}//.brand-yellow-scheme
+.brand-blue-scheme {
+	.bc-breadcrumbs {
+		.bc-breadcrumbs-links {
+			&::before {	background-color: $brand-blue;	}
 		}
 	}
 	.bc-card {
 		&--slide-up {
-			.card-separator { 
-				&:before {	background-color: $brand-red;	}
+			.content-separator { 
+				&:before {	background-color: $brand-blue;	}
 			}
+		}
+		&.person-card {
+			.bc-card-content {
+				.bc-card-subtitle {	color: $brand-blue; }	
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-blue;
+				color: $white;
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-blue, 8%);
+				}	
+			}
+			
 		}
 	}
 }//.brand-yellow-scheme

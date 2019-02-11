@@ -1,5 +1,5 @@
-@mixin boxShadow($x: 0, $y: 0, $blur: $base-unit*1px, $spread: 0, $color: rgba(0, 0, 0, 0.4)) {
-	box-shadow: $x $y $blur $spread $color;
+@mixin boxShadow($inset, $x: 0, $y: 0, $blur: $base-unit*1px, $spread: 0, $color: $shade-dark) {
+	box-shadow: $inset $x $y $blur $spread $color;
 }
 @mixin makeFlexbox($direction: row, $justify: flex-start, $align: flex-start, $wrap: nowrap) {
 	display: flex;
@@ -10,10 +10,15 @@
 }
 @mixin makeLabel($uppercase: uppercase) {
 	font-size: 0.8rem;
-  color: rgba($black, 0.75);
+  color: $shade-dark;
   font-weight: 300;
   text-transform: $uppercase;
 	@media screen and (min-width: $desktop) {
 		font-size: 0.72rem;
 	}
+}
+@mixin isSquare() {
+	position: relative;
+	overflow: hidden;
+	padding-top: 100%;
 }

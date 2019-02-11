@@ -140,10 +140,12 @@ sup {
 
 /**
  * Remove the border on images inside links in IE 10.
+ * BC: Responsivize images
  */
 
 img {
   border-style: none;
+	min-width: 100%;
 }
 
 /* Forms
