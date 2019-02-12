@@ -2,7 +2,7 @@
 .bc-cards-heading {
 	flex: 1 1 100;
 	width: 100%;
-	padding: $gutter $gutter/2; 
+	padding: 0 $gutter/2 $gutter; 
 	h1, h2, h3, h4, h5 { margin-top: 0; }
 }
 .bc-card {
@@ -143,6 +143,14 @@
 		}
 	}// .bc-card--plain-text
 }// .bc-card 
+.bc-content-row {
+	&.bc-cards-row {
+		padding-top: 		$gutter*1.5;
+		padding-bottom: $gutter*2;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
 .bc-cards-row--full-bleed {
 	padding-left: $gutter;
 	padding-right: $gutter;

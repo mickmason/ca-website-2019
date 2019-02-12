@@ -1,0 +1,115 @@
+/** Branch colour schemes **/
+.brand-yellow-scheme {
+	.bc-breadcrumbs {
+		.bc-breadcrumbs-links {
+			&::before {	background-color: $brand-yellow;	}
+		}
+	}
+	.bc-card {
+		&--slide-up {
+			.content-separator { 
+				&:before {	background-color: $brand-yellow;	}
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-yellow;
+				color: $black;
+				.svg-icon {
+					fill: $white;
+				}
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-yellow, 16%);
+				}
+			}
+		}
+	}
+	.two-col-feature {
+		.content-subtitle {
+			color: $black;
+		}
+		figcaption {
+			&:before {
+				background-color: $black;
+			}
+			.svg-icon { fill: $black; }
+		}
+	}
+}//.brand-yellow-scheme
+.brand-red-scheme {
+	.bc-breadcrumbs {
+		.bc-breadcrumbs-links {
+			&::before { background-color: $brand-red;	 }
+		}
+	}
+	.content-separator { 
+		&:before {	background-color: $brand-red;	}
+	}
+	.bc-card {	
+		&.person-card {
+			.bc-card-content {
+				.bc-card-subtitle {	color: $brand-red; }	
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-red;
+				color: $white;
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-red, 8%); 
+				}
+			}
+		}
+	}
+	.two-col-feature {
+		.content-subtitle {
+			color: $brand-red;
+		}
+		figcaption {
+			&:before {
+				background-color: $brand-red;
+			}
+			.svg-icon { fill: $brand-red; }
+		}
+	}
+}//.brand-yellow-scheme
+.brand-blue-scheme {
+	.bc-breadcrumbs {
+		.bc-breadcrumbs-links {
+			&::before {	background-color: $brand-blue;	}
+		}
+	}
+	.bc-card {
+		&--slide-up {
+			.content-separator { 
+				&:before {	background-color: $brand-blue;	}
+			}
+		}
+		&.person-card {
+			.bc-card-content {
+				.bc-card-subtitle {	color: $brand-blue; }	
+			}
+		}
+		&--plain-text {
+			.bc-card-content {
+				background-color: $brand-blue;
+				color: $white;
+				&:hover, &:focus, &:active {
+					background-color: darken($brand-blue, 8%);
+				}	
+			}
+		}
+		.two-col-feature {
+			.content-subtitle {
+				color: $brand-blue;
+			}
+			figcaption {
+				&:before {
+					background-color: $brand-blue;
+				}
+				.svg-icon { fill: $brand-blue; }
+			}
+		}
+	}
+}//.brand-blue-scheme
+/** -- Branch colour schemes -- **/
