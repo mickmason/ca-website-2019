@@ -28,8 +28,7 @@
 				object-fit: cover;
 			}
 			padding-top: 100%;
-		}	
-		
+		}
 	}
 	& &-content {
 		.bc-card-title { 
@@ -50,26 +49,10 @@
 			padding: $gutter $gutter/2;
 		}
 	}
-	.project-info, project-link {
-		flex: 0 1 0;
+	.bc-card-info, .bc-card-link {
+		flex: 0 1 auto;
 	}
-	.project-link {
-		@include makeFlexbox($direction: row, $align: center);
-		.project-link-text {
-			flex: 0 1 auto;
-			padding-right: $gutter/2;
-		}
-		.svg-icon {
-			flex: 0 1 auto;
-			max-height: 1.25rem;
-			max-width: 	1.25rem;
-		}
-	}
-	&:hover, &:focus {
-		.project-link-text {
-			text-decoration: underline;
-		}
-	}
+	
 	&--slide-up {
 		position: relative;
 		overflow: hidden;
@@ -87,17 +70,33 @@
 			background-color: $white;
 			transition: top $menuSlideTransition $easing;	
 		}
+		.bc-card-link {
+			@include makeFlexbox($direction: row, $align: center);
+			.bc-card-link-text {
+				flex: 0 1 auto;
+				padding-right: $gutter/2;
+				color: $bc-blue;
+			}
+			.svg-icon {
+				flex: 0 1 auto;
+				max-height: 1.25rem;
+				max-width: 	1.25rem;
+				fill: $bc-blue;
+			}
+		}
 		&:hover, &:focus {
 			margin-top: 0;
 			.bc-card-content {
 				top: 0;	
 				background-color: $white;
 			}
+			.bc-card-link-text {
+				text-decoration: underline;
+			}
 		}
 	}// .bc-card--slide-up 
 	/* We are real card */
 	&--plain-text {
-		
 		.bc-card-content {
 			height: 100%;
 			background-color: $shade-light; 

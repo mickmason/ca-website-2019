@@ -18,12 +18,12 @@ $text: 					#303030;
 $shade-dark: 		rgba($black, 0.72);
 $shade-mid: 		rgba($black, 0.48);
 $shade-light: 		rgba($black, 0.24);
+$shade-lightest: 		rgba($black, 0.12);
 
 /* Breakpoints*/
 $tablet: 				767px;
 $tablet-max: 		1023px;
 $desktop: 			1024px;
-
 $med: 					1240px;
 $laptop:				1366px;
 $large: 				1440px;
@@ -34,3 +34,12 @@ $xx-large: 			1920px;
 $menuSlideTransition: 240ms;
 $buttonTransition: 		320ms;
 $easing: 							ease-out;
+
+
+/* Framework */
+$bc-blue: 			#150CB4;
+
+/* Golden ratio stuff */
+$gr-small: 	38.2%;
+$gr-mid: 		50%;
+$gr-long: 	61.8%;

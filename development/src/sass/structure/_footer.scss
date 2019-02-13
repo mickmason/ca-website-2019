@@ -1,0 +1,41 @@
+/** Site wide footer **/
+footer {
+  background-color: #303030;
+  color: #fff;
+	.bc-content-row {
+		@include makeRow($direction: column, $align: stretch);
+		padding-top: 		2rem;
+		padding-bottom: 3rem;
+	} 
+	.footer-col {
+		flex: 1 1 0;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+	h2 {
+		font-size: 1.25rem;
+		font-weight: 500;
+	}
+	h3 { 
+		margin-top: 1rem;
+		font-size: 1rem;
+		font-weight: 500; 
+	}
+	p {
+		margin-top: $gutter/8;
+	}
+	@media screen and (min-width: 1024px) {
+		flex-direction: row;
+		.footer-col {
+			flex-basis: 30%;
+			max-width: 30%;
+		}
+	}
+	@media screen and (min-width: 1220px) {
+		.footer-col {
+			flex-basis: calc(100% / 4);
+			max-width: 	calc(100% / 4);
+		}
+	}
+}
+/** -- Site wide footer -- **/

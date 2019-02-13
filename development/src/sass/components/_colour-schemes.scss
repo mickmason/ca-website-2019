@@ -35,6 +35,31 @@
 			.svg-icon { fill: $black; }
 		}
 	}
+	.page-bottom-links { 
+		.page-bottom-links-back {
+			.icon-wrap {
+				background-color: $brand-yellow;
+			}
+			.svg-icon {
+				fill :$black;
+			}
+			a {
+				color: $black;
+				&:hover, &:focus, &:active {
+					background-color: rgba($brand-yellow, 0.8);
+					color: $black;
+				}
+			}
+		}
+		.page-bottom-links-top {
+			&:hover, &:active, &:focus {
+				a { color: $black ; }
+				.svg-icon {
+					fill: rgba($brand-yellow, 0.8);
+				}
+			}
+		}
+	}
 }//.brand-yellow-scheme
 .brand-red-scheme {
 	.bc-breadcrumbs {
@@ -72,6 +97,25 @@
 			.svg-icon { fill: $brand-red; }
 		}
 	}
+	.page-bottom-links { 
+		.page-bottom-links-back {
+			.icon-wrap {
+				background-color: $brand-red;
+			}
+			a {
+				&:hover, &:focus, &:active {
+					background-color: rgba($brand-red, 0.8); 
+				}
+			}
+		}
+		.page-bottom-links-top {
+			&:hover, &:active, &:focus {
+				.svg-icon {
+					fill: rgba($brand-red, 0.8);
+				}
+			}
+		}
+	}
 }//.brand-yellow-scheme
 .brand-blue-scheme {
 	.bc-breadcrumbs {
@@ -99,17 +143,36 @@
 				}	
 			}
 		}
-		.two-col-feature {
-			.content-subtitle {
-				color: $brand-blue;
+	}// .bc-card
+	.two-col-feature {
+		.content-subtitle {
+			color: $brand-blue;
+		}
+		figcaption {
+			&:before {
+				background-color: $brand-blue;
 			}
-			figcaption {
-				&:before {
-					background-color: $brand-blue;
+			.svg-icon { fill: $brand-blue; }
+		}
+	}// .two-col-feature
+	.page-bottom-links { 
+		.page-bottom-links-back {
+			.icon-wrap {
+				background-color: $brand-blue;
+			}
+			a {
+				&:hover, &:focus, &:active {
+					background-color: rgba($brand-blue, 0.8); 
 				}
-				.svg-icon { fill: $brand-blue; }
 			}
 		}
-	}
+		.page-bottom-links-top {
+			&:hover, &:active, &:focus {
+				.svg-icon {
+					fill: rgba($brand-blue, 0.8);
+				}
+			}
+		}
+	}// .page-bottom-links
 }//.brand-blue-scheme
 /** -- Branch colour schemes -- **/

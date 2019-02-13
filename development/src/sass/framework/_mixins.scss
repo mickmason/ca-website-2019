@@ -22,3 +22,6 @@
 	overflow: hidden;
 	padding-top: 100%;
 }
+@mixin makeButtonTransition($prop) {
+	transition: $prop $buttonTransition $easing ;
+}
