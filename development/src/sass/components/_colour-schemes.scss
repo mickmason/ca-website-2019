@@ -5,12 +5,10 @@
 			&::before {	background-color: $brand-yellow;	}
 		}
 	}
+	.content-separator { 
+		&:before {	background-color: $brand-yellow;	}
+	}
 	.bc-card {
-		&--slide-up {
-			.content-separator { 
-				&:before {	background-color: $brand-yellow;	}
-			}
-		}
 		&--plain-text {
 			.bc-card-content {
 				background-color: $brand-yellow;
@@ -123,12 +121,10 @@
 			&::before {	background-color: $brand-blue;	}
 		}
 	}
+	.content-separator { 
+		&:before {	background-color: $brand-blue;	}
+	}
 	.bc-card {
-		&--slide-up {
-			.content-separator { 
-				&:before {	background-color: $brand-blue;	}
-			}
-		}
 		&.person-card {
 			.bc-card-content {
 				.bc-card-subtitle {	color: $brand-blue; }	

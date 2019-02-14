@@ -8,13 +8,15 @@
 	flex-wrap: $wrap;
 	align-items: $align;
 }
-@mixin makeLabel($uppercase: uppercase) {
+@mixin makeLabel($uppercase: false) {
 	font-size: 0.8rem;
   color: $shade-dark;
   font-weight: 300;
-  text-transform: $uppercase;
+	@if ($uppercase ) {
+		text-transform: uppercase;	
+	}
 	@media screen and (min-width: $desktop) {
-		font-size: 0.72rem;
+		//font-size: 0.72rem;
 	}
 }
 @mixin isSquare() {

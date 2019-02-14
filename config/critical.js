@@ -23,6 +23,7 @@ module.exports = {
 		files: [
 			{src: '<%= paths.html.dest %>index.html', dest: '<%= paths.html.dest %>index.html'},
 			{src: '<%= paths.html.dest %>projects/projects.html', dest: '<%= paths.html.dest %>projects/projects.html'},
+			{src: '<%= paths.html.dest %>projects/meath-project.html', dest: '<%= paths.html.dest %>projects/meath-project.html'},
 			{src: '<%= paths.html.dest %>people/people.html', dest: '<%= paths.html.dest %>people/people.html'},
 			{src: '<%= paths.html.dest %>people/bryan-profile.html', dest: '<%= paths.html.dest %>people/bryan-profile.html'},
 			{src: '<%= paths.html.dest %>two-column.html', dest: '<%= paths.html.dest %>two-column.html'}
